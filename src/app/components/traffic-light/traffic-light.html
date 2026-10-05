@@ -1,0 +1,21 @@
+<div class="traffic-light-container">
+  <h2>Semáforo Funcional</h2>
+
+  <div class="traffic-light">
+    @for (light of lights; track light.color) {
+      <div 
+        class="light"
+        [class]="light.color"
+        [class.active]="activeLight === light.color"
+        (click)="setLight(light.color)">
+      </div>
+    }
+  </div>
+
+  <div class="controls">
+    <button (click)="nextLight()">Siguiente Luz</button>
+    <button (click)="toggleAuto()">
+      {{ isAuto ? 'Detener Automático' : 'Modo Automático' }}
+    </button>
+  </div>
+</div>
