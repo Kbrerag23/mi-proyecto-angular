@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, signal } from '@angular/core';
 
 export type LightColor = 'red' | 'yellow' | 'green';
 
@@ -21,43 +21,45 @@ export class TrafficLightComponent implements OnDestroy {
     { color: 'green', label: 'Verde' }
   ];
 
-  activeLight: LightColor = 'red';
-  isAuto = false;
-  private intervalId: any = null;
+  activeLight = signal<LightColor>('red');
+  isAuto = signal<boolean>(false);
+
+  private timer: any = null;
 
   setLight(color: LightColor) {
-    this.activeLight = color;
+    this.activeLight.set(color);
   }
 
   nextLight() {
-    switch (this.activeLight) {
-      case 'red':
-        this.activeLight = 'green';
-        break;
-      case 'green':
-        this.activeLight = 'yellow';
-        break;
-      case 'yellow':
-        this.activeLight = 'red';
-        break;
+    const current = this.activeLight();
+
+    if (current === 'green') {
+      this.activeLight.set('yellow');
+    } else if (current === 'yellow') {
+      this.activeLight.set('red');
+    } else {
+      this.activeLight.set('green');
     }
   }
 
   toggleAuto() {
-    this.isAuto = !this.isAuto;
-    if (this.isAuto) {
-      this.intervalId = setInterval(() => {
-        this.nextLight();
-      }, 2000);
-    } else {
+    if (this.isAuto()) {
       this.stopAuto();
+    } else {
+      this.isAuto.set(true);
+      this.nextLight(); 
+
+      this.timer = setInterval(() => {
+        this.nextLight();
+      }, 1000);
     }
   }
 
   private stopAuto() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
+    this.isAuto.set(false);
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
     }
   }
 
