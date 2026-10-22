@@ -1,11 +1,13 @@
 <main class="app-layout">
-  <header class="app-header">
-    <h1>{{ title }}</h1>
-  </header>
+  <header class="navbar">
+  <nav>
+    <a routerLink="/calculator" routerLinkActive="active">Calculadora</a>
+    <a routerLink="/halloween" routerLinkActive="active">Halloween</a>
+    <a routerLink="/traffic-light" routerLinkActive="active">Semáforo</a>
+  </nav>
+</header>
 
   <section class="app-content">
-    <app-calculator></app-calculator>
-    <app-traffic-light></app-traffic-light>
-    <app-halloween></app-halloween>
+    <router-outlet></router-outlet>
   </section>
 </main>
