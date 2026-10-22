@@ -1,0 +1,58 @@
+<div class="halloween-container">
+  <h2>Formulario de Halloween</h2>
+
+  <form [formGroup]="formularioHalloween" (ngSubmit)="enviar()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text" formControlName="nombre" />
+
+      @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
+        <div class="error-msg">
+          @if (nombre.hasError('required')) {
+            <span>El nombre es obligatorio.</span>
+          }
+          @if (nombre.hasError('minlength')) {
+            <span>Debe tener al menos 3 caracteres.</span>
+          }
+          @if (nombre.hasError('maxlength')) {
+            <span>No puede superar los 50 caracteres.</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="objeto">Objeto:</label>
+      <input id="objeto" type="text" formControlName="objeto" />
+
+      @if (objeto.invalid && (objeto.dirty || objeto.touched)) {
+        <div class="error-msg">
+          @if (objeto.hasError('required')) {
+            <span>El objeto es obligatorio.</span>
+          }
+          @if (objeto.hasError('minlength')) {
+            <span>Debe tener al menos 3 caracteres.</span>
+          }
+          @if (objeto.hasError('maxlength')) {
+            <span>No puede superar los 50 caracteres.</span>
+          }
+        </div>
+      }
+    </div>
+
+    <button type="submit" [disabled]="formularioHalloween.invalid">
+      Enviar
+    </button>
+  </form>
+
+  <hr />
+
+  <div class="lista-container">
+    <h3>Lista de objetos de Halloween:</h3>
+    <ol>
+      @for (item of objetosHalloween; track $index) {
+        <li>{{ item }}</li>
+      }
+    </ol>
+  </div>
+</div>

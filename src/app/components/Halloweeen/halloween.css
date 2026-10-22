@@ -1,0 +1,86 @@
+.halloween-container {
+  max-width: 480px;
+  margin: 30px auto;
+  padding: 24px;
+  background-color: #1e1e24;
+  color: #f7f7f7;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+h2 {
+  color: #ff7518;
+  text-align: center;
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ffa458;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #2b2b36;
+  color: #fff;
+  outline: none;
+}
+
+input:focus {
+  border-color: #ff7518;
+}
+
+.error-msg {
+  color: #ff5252;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7518;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #3a3a48;
+  margin: 24px 0;
+}
+
+.lista-container h3 {
+  color: #ff914d;
+  margin-bottom: 12px;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+ol li {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
