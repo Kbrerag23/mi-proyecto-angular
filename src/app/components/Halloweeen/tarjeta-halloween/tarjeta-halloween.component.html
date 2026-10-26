@@ -1,0 +1,9 @@
+<article class="tarjeta">
+  <img [src]="datos.imagen" [alt]="datos.objeto" />
+  <div class="contenido">
+    <h4>{{ datos.objeto }}</h4>
+    <p>{{ datos.descripcion }}</p>
+    <span>Propietario: {{ datos.propietario }}</span>
+    <button class="btn-eliminar" type="button" (click)="eliminarTarjeta()">Eliminar</button>
+  </div>
+</article>

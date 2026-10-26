@@ -1,0 +1,17 @@
+.padre-container {
+  background-color: #f8fafc;
+  border: 2px dashed #94a3b8;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  margin: 24px auto;
+  font-family: system-ui, sans-serif;
+}
+.respuesta-box {
+  background-color: #fef3c7;
+  border: 1px solid #fde68a;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #92400e;
+}

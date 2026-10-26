@@ -1,0 +1,15 @@
+<section class="cesta-wrapper">
+  <h3 class="titulo-cesta">Mi Cesta de Frutas</h3>
+  
+  <ul class="elementos-cesta">
+    @for (item of inventarioFrutas(); track item) {
+      <li class="item-fruta"> {{ item }}</li>
+    } @empty {
+      <li class="item-vacio">La cesta está totalmente vacía.</li>
+    }
+  </ul>
+
+  <button class="btn-nueva-fruta" (click)="incorporarFruta()">
+    + Añadir Melocotón
+  </button>
+</section>

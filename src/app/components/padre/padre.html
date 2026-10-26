@@ -1,0 +1,16 @@
+<div class="padre-container">
+  <h2>Componente Padre</h2>
+  
+  <div class="respuesta-box">
+    <p><strong>Buzón del Padre:</strong> {{ respuestaDelHijo() }}</p>
+  </div>
+
+  <app-hijo 
+    [mensaje]="mensajeDinamico()" 
+    (mensajeAlPadre)="recibirMensaje($event)">
+  </app-hijo>
+  <app-hijo 
+    [mensaje]="mensajeDinamico()" 
+    (mensajeAlPadre)="recibirMensaje($event)">
+  </app-hijo>
+</div>

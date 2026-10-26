@@ -1,0 +1,53 @@
+.cesta-wrapper {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  border-radius: 16px;
+  font-family: system-ui, sans-serif;
+}
+
+.titulo-cesta {
+  color: #166534;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.elementos-cesta {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.item-fruta {
+  background-color: #ffffff;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  color: #374151;
+}
+
+.item-vacio {
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+}
+
+.btn-nueva-fruta {
+  width: 100%;
+  padding: 12px;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-nueva-fruta:hover {
+  background-color: #16a34a;
+}

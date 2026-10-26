@@ -1,43 +1,51 @@
 <div class="halloween-container">
-  <h2>Formulario de Halloween</h2>
-
+  <h2>Registro de Objetos de Halloween</h2>
   <form [formGroup]="formularioHalloween" (ngSubmit)="enviar()">
     <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input id="nombre" type="text" formControlName="nombre" />
-
-      @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
-        <div class="error-msg">
-          @if (nombre.hasError('required')) {
-            <span>El nombre es obligatorio.</span>
-          }
-          @if (nombre.hasError('minlength')) {
-            <span>Debe tener al menos 3 caracteres.</span>
-          }
-          @if (nombre.hasError('maxlength')) {
-            <span>No puede superar los 50 caracteres.</span>
-          }
-        </div>
-      }
+      <label for="imagen">Imagen (URL):</label>
+      <input id="imagen" type="url" formControlName="imagen" />
+      <small *ngIf="formularioHalloween.controls.imagen.touched && formularioHalloween.controls.imagen.invalid">
+        La imagen es obligatoria.
+      </small>
     </div>
 
     <div class="form-group">
       <label for="objeto">Objeto:</label>
       <input id="objeto" type="text" formControlName="objeto" />
+      <small *ngIf="formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['required']">
+        El objeto es obligatorio.
+      </small>
+      <small *ngIf="formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['minlength']">
+        Debe tener al menos 3 caracteres.
+      </small>
+      <small *ngIf="formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['maxlength']">
+        No puede superar los 50 caracteres.
+      </small>
+    </div>
 
-      @if (objeto.invalid && (objeto.dirty || objeto.touched)) {
-        <div class="error-msg">
-          @if (objeto.hasError('required')) {
-            <span>El objeto es obligatorio.</span>
-          }
-          @if (objeto.hasError('minlength')) {
-            <span>Debe tener al menos 3 caracteres.</span>
-          }
-          @if (objeto.hasError('maxlength')) {
-            <span>No puede superar los 50 caracteres.</span>
-          }
-        </div>
-      }
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" rows="3" formControlName="descripcion"></textarea>
+      <small *ngIf="formularioHalloween.controls.descripcion.touched && formularioHalloween.controls.descripcion.errors?.['required']">
+        La descripción es obligatoria.
+      </small>
+      <small *ngIf="formularioHalloween.controls.descripcion.touched && formularioHalloween.controls.descripcion.errors?.['minlength']">
+        Debe tener al menos 10 caracteres.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="propietario">Propietario:</label>
+      <input id="propietario" type="text" formControlName="propietario" />
+      <small *ngIf="formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['required']">
+        El propietario es obligatorio.
+      </small>
+      <small *ngIf="formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['minlength']">
+        Debe tener al menos 3 caracteres.
+      </small>
+      <small *ngIf="formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['maxlength']">
+        No puede superar los 50 caracteres.
+      </small>
     </div>
 
     <button type="submit" [disabled]="formularioHalloween.invalid">
@@ -48,11 +56,11 @@
   <hr />
 
   <div class="lista-container">
-    <h3>Lista de objetos de Halloween:</h3>
-    <ol>
-      @for (item of objetosHalloween; track $index) {
-        <li>{{ item }}</li>
-      }
-    </ol>
+    <h3>Objetos Guardados</h3>
+    <app-tarjeta-halloween
+      *ngFor="let item of objetosHalloween"
+      [datos]="item"
+      (solicitarEliminacion)="eliminarObjeto($event)">
+    </app-tarjeta-halloween>
   </div>
 </div>

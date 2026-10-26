@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
-import { CalculatorComponent } from './components/calculator/calculator';
-import { TrafficLightComponent } from './components/traffic-light/traffic-light';
-import { HalloweenComponent } from './components/Halloweeen/halloween';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CalculatorComponent, TrafficLightComponent, HalloweenComponent, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, NavBarComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   title = 'Mi Aplicación';
 }
-
-  
