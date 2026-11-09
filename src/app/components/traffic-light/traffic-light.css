@@ -8,6 +8,7 @@
   padding: 15px;
   border-radius: 10px;
   display: inline-block;
+  margin-inline: 10px;
 }
 
 .light {
