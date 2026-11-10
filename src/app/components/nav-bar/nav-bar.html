@@ -6,4 +6,18 @@
     <a routerLink="/padre" routerLinkActive="active">Padre</a>
     <a routerLink="/calculator" routerLinkActive="active">Calculadora</a>
   </nav>
+
+  <button
+    type="button"
+    class="theme-switch"
+    role="switch"
+    [class.on]="theme.isDark()"
+    [attr.aria-checked]="theme.isDark()"
+    aria-label="Cambiar entre modo claro y modo oscuro"
+    (click)="theme.toggle()">
+    <span class="track">
+      <span class="thumb">{{ theme.isDark() ? '🌙' : '☀️' }}</span>
+    </span>
+    <span class="label">{{ theme.isDark() ? 'Oscuro' : 'Claro' }}</span>
+  </button>
 </header>

@@ -10,7 +10,7 @@
 .app-header h1 {
   margin: 0 0 24px 0;
   font-size: 1.5rem;
-  color: #333333;
+  color: var(--text);
   text-align: center;
   font-weight: 600;
 }

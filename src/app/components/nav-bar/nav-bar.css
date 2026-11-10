@@ -1,18 +1,26 @@
 .navbar {
-  background: #1f2937;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .navbar nav {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
 }
 
 .navbar a {
-  color: #e5e7eb;
+  color: var(--nav-link);
   text-decoration: none;
   font-weight: 600;
   padding: 0.55rem 0.9rem;
@@ -22,6 +30,61 @@
 
 .navbar a:hover,
 .navbar a.active {
-  background: #2563eb;
-  color: white;
+  background: var(--nav-active-bg);
+  color: var(--nav-active-text);
+}
+
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--nav-link);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-switch:focus-visible {
+  outline: 2px solid var(--nav-active-bg);
+  outline-offset: 2px;
+}
+
+.track {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--switch-track);
+  transition: background-color 0.2s;
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.theme-switch.on .track {
+  background: var(--nav-active-bg);
+}
+
+.theme-switch.on .thumb {
+  transform: translateX(20px);
+}
+
+.label {
+  min-width: 3.5rem;
 }

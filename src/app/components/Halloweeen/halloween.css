@@ -2,14 +2,15 @@
   max-width: 500px;
   margin: 30px auto;
   padding: 24px;
-  background-color: #1e1e24;
-  color: #f7f7f7;
+  background-color: var(--hw-bg);
+  color: var(--hw-text);
   border-radius: 12px;
   font-family: sans-serif;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 h2 {
-  color: #ff7518;
+  color: var(--hw-title);
   text-align: center;
   margin-top: 0;
 }
@@ -23,27 +24,27 @@ h2 {
 label {
   font-weight: bold;
   margin-bottom: 6px;
-  color: #ffa458;
+  color: var(--hw-label);
 }
 
 input {
   padding: 10px;
-  border: 1px solid #444;
+  border: 1px solid var(--hw-input-border);
   border-radius: 6px;
   font-size: 1rem;
-  background-color: #2b2b36;
-  color: #fff;
+  background-color: var(--hw-input-bg);
+  color: var(--hw-input-text);
   outline: none;
 }
 
 textarea {
   padding: 10px;
-  border: 1px solid #444;
+  border: 1px solid var(--hw-input-border);
   border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
-  background-color: #2b2b36;
-  color: #fff;
+  background-color: var(--hw-input-bg);
+  color: var(--hw-input-text);
   resize: vertical;
 }
 
@@ -54,7 +55,7 @@ textarea:focus {
 
 small {
   margin-top: 5px;
-  color: #ff9b83;
+  color: var(--hw-error);
 }
 
 button {
@@ -78,12 +79,12 @@ button:disabled {
 hr {
   border: 0;
   height: 1px;
-  background: #3a3a48;
+  background: var(--hw-hr);
   margin: 24px 0;
 }
 
 h3 {
-  color: #ff914d;
+  color: var(--hw-sub);
   text-align: center;
 }
 

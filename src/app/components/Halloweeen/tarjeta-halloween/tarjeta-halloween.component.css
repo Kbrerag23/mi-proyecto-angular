@@ -2,9 +2,9 @@
   display: flex;
   min-height: 150px;
   overflow: hidden;
-  border: 1px solid #4b3b36;
+  border: 1px solid var(--hw-card-border);
   border-radius: 10px;
-  background-color: #29252a;
+  background-color: var(--hw-card-bg);
 }
 
 img {
@@ -22,19 +22,19 @@ img {
 
 h4 {
   margin: 0 0 8px;
-  color: #ffa458;
+  color: var(--hw-card-title);
   font-size: 1.1rem;
 }
 
 p {
   margin: 0 0 16px;
-  color: #eee;
+  color: var(--hw-card-text);
   line-height: 1.4;
 }
 
 span {
   margin-top: auto;
-  color: #c6b7af;
+  color: var(--hw-card-muted);
   font-size: 0.9rem;
 }
 

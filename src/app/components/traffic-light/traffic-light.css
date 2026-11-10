@@ -4,7 +4,7 @@
 }
 
 .traffic-light {
-  background-color: #333;
+  background-color: var(--tl-body);
   padding: 15px;
   border-radius: 10px;
   display: inline-block;
@@ -35,5 +35,13 @@
 .controls button {
   margin: 0 5px;
   padding: 5px 10px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+  border-radius: 4px;
   cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: var(--btn-hover-bg);
 }

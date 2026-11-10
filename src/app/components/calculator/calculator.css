@@ -7,13 +7,15 @@
 
 .calculator {
   width: 260px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
   padding: 15px;
   border-radius: 8px;
 }
 
 .screen {
-  background: #f0f0f0;
+  background: var(--calc-screen);
+  color: var(--text);
   padding: 10px;
   text-align: right;
   border-radius: 4px;
@@ -21,7 +23,7 @@
 }
 
 .history {
-  color: #777;
+  color: var(--calc-history);
   font-size: 14px;
   min-height: 18px;
 }
@@ -40,10 +42,15 @@
 .btn {
   padding: 12px;
   font-size: 18px;
-  border: 1px solid #ccc;
-  background: #fff;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-text);
   border-radius: 4px;
   cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--btn-hover-bg);
 }
 
 .zero {
