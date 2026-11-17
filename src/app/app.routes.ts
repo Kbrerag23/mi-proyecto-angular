@@ -4,6 +4,7 @@ import { HalloweenComponent } from './components/Halloweeen/halloween';
 import { TrafficLightComponent } from './components/traffic-light/traffic-light';
 import { ListaFrutasComponent } from './components/lista-frutas/lista-frutas';
 import { PadreComponent } from './components/padre/padre';
+import { PouClickerComponent } from './components/pou-clicker/pou-clicker';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'semaforo', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'calculator', component: CalculatorComponent },
   { path: 'halloween', redirectTo: 'formulario-halloween', pathMatch: 'full' },
   { path: 'traffic-light', redirectTo: 'semaforo', pathMatch: 'full' },
+  { path: 'pou', component: PouClickerComponent },
   { path: '**', redirectTo: 'semaforo' }
 ];
