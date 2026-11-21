@@ -1,61 +1,17 @@
 <div class="traffic-light-container">
   <h2>Semáforo</h2>
 
-  <div class="traffic-light">
-    @for (light of lights; track light.color) {
-      <div 
-        class="light {{ light.color }}"
-        [class.active]="activeLight() === light.color"
-        (click)="setLight(light.color)">
-      </div>
-    }
-  </div>
-
-  <div class="traffic-light">
-    @for (light of lights; track light.color) {
-      <div 
-        class="light {{ light.color }}"
-        [class.active]="activeLight() === light.color"
-        (click)="setLight(light.color)">
-      </div>
-    }
-  </div>
-  <div class="traffic-light">
-    @for (light of lights; track light.color) {
-      <div 
-        class="light {{ light.color }}"
-        [class.active]="activeLight() === light.color"
-        (click)="setLight(light.color)">
-      </div>
-    }
-  </div>
-  <div class="traffic-light">
-    @for (light of lights; track light.color) {
-      <div 
-        class="light {{ light.color }}"
-        [class.active]="activeLight() === light.color"
-        (click)="setLight(light.color)">
-      </div>
-    }
-  </div>
-  <div class="traffic-light">
-    @for (light of lights; track light.color) {
-      <div 
-        class="light {{ light.color }}"
-        [class.active]="activeLight() === light.color"
-        (click)="setLight(light.color)">
-      </div>
-    }
-  </div>
-  <div class="traffic-light">
-    @for (light of lights; track light.color) {
-      <div 
-        class="light {{ light.color }}"
-        [class.active]="activeLight() === light.color"
-        (click)="setLight(light.color)">
-      </div>
-    }
-  </div>
+  @for (semaforo of semaforos; track semaforo) {
+    <div class="traffic-light">
+      @for (light of lights; track light.color) {
+        <div
+          class="light {{ light.color }}"
+          [class.active]="activeLight() === light.color"
+          (click)="setLight(light.color)">
+        </div>
+      }
+    </div>
+  }
 
   <div class="controls">
     <button (click)="nextLight()">Siguiente Luz</button>

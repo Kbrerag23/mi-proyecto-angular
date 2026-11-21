@@ -9,6 +9,7 @@ import { HijoComponent } from '../hijo/hijo';
   styleUrl: './padre.css'
 })
 export class PadreComponent {
+  hijos = [1, 2, 3, 4, 5];
   mensajeDinamico = signal('Hola hijo');
   respuestaDelHijo = signal('Esperando respuesta...');
 

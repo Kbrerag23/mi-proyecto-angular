@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
+import { HalloweenService } from '../../services/halloween.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,4 +12,5 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class NavBarComponent {
   readonly theme = inject(ThemeService);
+  readonly halloween = inject(HalloweenService);
 }

@@ -4,48 +4,51 @@
     <div class="form-group">
       <label for="imagen">Imagen (URL):</label>
       <input id="imagen" type="url" formControlName="imagen" />
-      <small *ngIf="formularioHalloween.controls.imagen.touched && formularioHalloween.controls.imagen.invalid">
-        La imagen es obligatoria.
-      </small>
+      @if (formularioHalloween.controls.imagen.touched && formularioHalloween.controls.imagen.invalid) {
+        <small>La imagen es obligatoria.</small>
+      }
     </div>
 
     <div class="form-group">
       <label for="objeto">Objeto:</label>
       <input id="objeto" type="text" formControlName="objeto" />
-      <small *ngIf="formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['required']">
-        El objeto es obligatorio.
-      </small>
-      <small *ngIf="formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['minlength']">
-        Debe tener al menos 3 caracteres.
-      </small>
-      <small *ngIf="formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['maxlength']">
-        No puede superar los 50 caracteres.
-      </small>
+      @let objeto = formularioHalloween.controls.objeto;
+      @if (objeto.touched && objeto.errors?.['required']) {
+        <small>El objeto es obligatorio.</small>
+      }
+      @if (objeto.touched && objeto.errors?.['minlength']) {
+        <small>Debe tener al menos 3 caracteres.</small>
+      }
+      @if (objeto.touched && objeto.errors?.['maxlength']) {
+        <small>No puede superar los 50 caracteres.</small>
+      }
     </div>
 
     <div class="form-group">
       <label for="descripcion">Descripción:</label>
       <textarea id="descripcion" rows="3" formControlName="descripcion"></textarea>
-      <small *ngIf="formularioHalloween.controls.descripcion.touched && formularioHalloween.controls.descripcion.errors?.['required']">
-        La descripción es obligatoria.
-      </small>
-      <small *ngIf="formularioHalloween.controls.descripcion.touched && formularioHalloween.controls.descripcion.errors?.['minlength']">
-        Debe tener al menos 10 caracteres.
-      </small>
+      @let descripcion = formularioHalloween.controls.descripcion;
+      @if (descripcion.touched && descripcion.errors?.['required']) {
+        <small>La descripción es obligatoria.</small>
+      }
+      @if (descripcion.touched && descripcion.errors?.['minlength']) {
+        <small>Debe tener al menos 10 caracteres.</small>
+      }
     </div>
 
     <div class="form-group">
       <label for="propietario">Propietario:</label>
       <input id="propietario" type="text" formControlName="propietario" />
-      <small *ngIf="formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['required']">
-        El propietario es obligatorio.
-      </small>
-      <small *ngIf="formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['minlength']">
-        Debe tener al menos 3 caracteres.
-      </small>
-      <small *ngIf="formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['maxlength']">
-        No puede superar los 50 caracteres.
-      </small>
+      @let propietario = formularioHalloween.controls.propietario;
+      @if (propietario.touched && propietario.errors?.['required']) {
+        <small>El propietario es obligatorio.</small>
+      }
+      @if (propietario.touched && propietario.errors?.['minlength']) {
+        <small>Debe tener al menos 3 caracteres.</small>
+      }
+      @if (propietario.touched && propietario.errors?.['maxlength']) {
+        <small>No puede superar los 50 caracteres.</small>
+      }
     </div>
 
     <button type="submit" [disabled]="formularioHalloween.invalid">
@@ -57,10 +60,11 @@
 
   <div class="lista-container">
     <h3>Objetos Guardados</h3>
-    <app-tarjeta-halloween
-      *ngFor="let item of objetosHalloween"
-      [datos]="item"
-      (solicitarEliminacion)="eliminarObjeto($event)">
-    </app-tarjeta-halloween>
+    @for (item of objetosHalloween(); track item) {
+      <app-tarjeta-halloween
+        [datos]="item"
+        (solicitarEliminacion)="eliminarObjeto($event)">
+      </app-tarjeta-halloween>
+    }
   </div>
 </div>

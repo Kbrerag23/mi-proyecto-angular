@@ -51,3 +51,18 @@
 .btn-nueva-fruta:hover {
   background-color: #16a34a;
 }
+
+.item-fruta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.btn-like {
+  background: transparent;
+  border: 1px solid var(--fruta-border);
+  border-radius: 8px;
+  padding: 2px 8px;
+  cursor: pointer;
+}

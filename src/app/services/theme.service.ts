@@ -41,6 +41,6 @@ export class ThemeService {
       if (saved === 'light' || saved === 'dark') return saved;
     } catch {
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 }

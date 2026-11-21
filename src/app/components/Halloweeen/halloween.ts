@@ -1,24 +1,20 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TarjetaHalloweenComponent } from './tarjeta-halloween/tarjeta-halloween.component';
-
-export interface ObjetoHalloween {
-  imagen: string;
-  objeto: string;
-  descripcion: string;
-  propietario: string;
-}
+import { HalloweenService } from '../../services/halloween.service';
+import { ObjetoHalloween } from '../../models/objeto-halloween';
 
 @Component({
   selector: 'app-halloween',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, TarjetaHalloweenComponent],
+  imports: [ReactiveFormsModule, TarjetaHalloweenComponent],
   templateUrl: './halloween.html',
   styleUrls: ['./halloween.css']
 })
 export class HalloweenComponent {
-  objetosHalloween: ObjetoHalloween[] = [];
+  private readonly halloweenService = inject(HalloweenService);
+
+  readonly objetosHalloween = this.halloweenService.objetos;
 
   formularioHalloween = new FormGroup({
     imagen: new FormControl('', [Validators.required]),
@@ -29,19 +25,18 @@ export class HalloweenComponent {
 
   enviar(): void {
     if (this.formularioHalloween.valid) {
-      const nuevoObjeto: ObjetoHalloween = {
-        imagen: this.formularioHalloween.value.imagen!,
-        objeto: this.formularioHalloween.value.objeto!,
-        descripcion: this.formularioHalloween.value.descripcion!,
-        propietario: this.formularioHalloween.value.propietario!
-      };
-      
-      this.objetosHalloween.push(nuevoObjeto);
+      const valores = this.formularioHalloween.value;
+      this.halloweenService.agregar({
+        imagen: valores.imagen!,
+        objeto: valores.objeto!,
+        descripcion: valores.descripcion!,
+        propietario: valores.propietario!
+      });
       this.formularioHalloween.reset();
     }
   }
 
-  eliminarObjeto(objetoAEliminar: ObjetoHalloween): void {
-    this.objetosHalloween = this.objetosHalloween.filter(item => item !== objetoAEliminar);
+  eliminarObjeto(objeto: ObjetoHalloween): void {
+    this.halloweenService.eliminar(objeto);
   }
 }

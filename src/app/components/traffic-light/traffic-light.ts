@@ -15,6 +15,8 @@ interface LightItem {
   styleUrl: './traffic-light.css'
 })
 export class TrafficLightComponent implements OnDestroy {
+  semaforos = [1, 2, 3, 4, 5, 6];
+
   lights: LightItem[] = [
     { color: 'red', label: 'Rojo' },
     { color: 'yellow', label: 'Ámbar' },
@@ -24,7 +26,7 @@ export class TrafficLightComponent implements OnDestroy {
   activeLight = signal<LightColor>('red');
   isAuto = signal<boolean>(false);
 
-  private timer: any = null;
+  private timer: ReturnType<typeof setInterval> | null = null;
 
   setLight(color: LightColor) {
     this.activeLight.set(color);
@@ -47,7 +49,7 @@ export class TrafficLightComponent implements OnDestroy {
       this.stopAuto();
     } else {
       this.isAuto.set(true);
-      this.nextLight(); 
+      this.nextLight();
 
       this.timer = setInterval(() => {
         this.nextLight();

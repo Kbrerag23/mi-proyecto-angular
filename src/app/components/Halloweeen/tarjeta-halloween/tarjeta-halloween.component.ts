@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import type { ObjetoHalloween } from '../halloween';
+import { Component, input, output } from '@angular/core';
+import { ObjetoHalloween } from '../../../models/objeto-halloween';
 
 @Component({
   selector: 'app-tarjeta-halloween',
@@ -8,10 +8,10 @@ import type { ObjetoHalloween } from '../halloween';
   styleUrl: './tarjeta-halloween.component.css'
 })
 export class TarjetaHalloweenComponent {
-  @Input() datos!: ObjetoHalloween;
-  @Output() solicitarEliminacion = new EventEmitter<ObjetoHalloween>();
+  datos = input.required<ObjetoHalloween>();
+  solicitarEliminacion = output<ObjetoHalloween>();
 
-  eliminarTarjeta() {
-    this.solicitarEliminacion.emit(this.datos);
+  eliminarTarjeta(): void {
+    this.solicitarEliminacion.emit(this.datos());
   }
 }
