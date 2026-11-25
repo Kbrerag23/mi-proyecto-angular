@@ -53,7 +53,7 @@ export class TrafficLightComponent implements OnDestroy {
 
       this.timer = setInterval(() => {
         this.nextLight();
-      }, 1000);
+      }, 2500);
     }
   }
 
