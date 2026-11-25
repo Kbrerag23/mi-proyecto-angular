@@ -11,6 +11,6 @@ export class HijoComponent {
   mensajeAlPadre = output<string>();
 
   enviarAlPadre() {
-    this.mensajeAlPadre.emit('Hola Papa');
+    this.mensajeAlPadre.emit('Hola papa');
   }
 }
