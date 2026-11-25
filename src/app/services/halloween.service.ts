@@ -1,18 +1,19 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { ObjetoHalloween } from '../models/objeto-halloween';
 
 @Injectable({ providedIn: 'root' })
 export class HalloweenService {
-  private readonly _objetos = signal<ObjetoHalloween[]>([]);
+  objetos = signal<ObjetoHalloween[]>([]);
 
-  readonly objetos = this._objetos.asReadonly();
-  readonly total = computed(() => this._objetos().length);
-
-  agregar(objeto: ObjetoHalloween): void {
-    this._objetos.update((lista) => [...lista, objeto]);
+  total() {
+    return this.objetos().length;
   }
 
-  eliminar(objeto: ObjetoHalloween): void {
-    this._objetos.update((lista) => lista.filter((item) => item !== objeto));
+  agregar(objeto: ObjetoHalloween) {
+    this.objetos.update((lista) => [...lista, objeto]);
+  }
+
+  eliminar(objeto: ObjetoHalloween) {
+    this.objetos.update((lista) => lista.filter((item) => item !== objeto));
   }
 }

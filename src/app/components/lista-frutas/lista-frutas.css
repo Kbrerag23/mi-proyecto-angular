@@ -21,6 +21,10 @@
 }
 
 .item-fruta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   background-color: var(--fruta-item-bg);
   padding: 10px 15px;
   margin-bottom: 8px;
@@ -35,6 +39,14 @@
   text-align: center;
 }
 
+.btn-like {
+  background: transparent;
+  border: 1px solid var(--fruta-border);
+  border-radius: 8px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
 .btn-nueva-fruta {
   width: 100%;
   padding: 12px;
@@ -45,24 +57,8 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .btn-nueva-fruta:hover {
   background-color: #16a34a;
-}
-
-.item-fruta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.btn-like {
-  background: transparent;
-  border: 1px solid var(--fruta-border);
-  border-radius: 8px;
-  padding: 2px 8px;
-  cursor: pointer;
 }

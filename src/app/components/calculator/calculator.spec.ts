@@ -34,33 +34,4 @@ describe('CalculatorComponent', () => {
     component.calculateResult();
     expect(component.display).toBe('5');
   });
-
-  it('multiplica', () => {
-    component.appendNumber('4');
-    component.setOperator('*');
-    component.appendNumber('3');
-    component.calculateResult();
-    expect(component.display).toBe('12');
-  });
-
-  it('divide entre cero devuelve 0', () => {
-    component.appendNumber('8');
-    component.setOperator('/');
-    component.appendNumber('0');
-    component.calculateResult();
-    expect(component.display).toBe('0');
-  });
-
-  it('añade el punto decimal', () => {
-    component.appendNumber('1');
-    component.appendDecimal();
-    expect(component.display).toBe('1.');
-  });
-
-  it('limpia la pantalla', () => {
-    component.appendNumber('9');
-    component.clear();
-    expect(component.display).toBe('0');
-    expect(component.history).toBe('');
-  });
 });

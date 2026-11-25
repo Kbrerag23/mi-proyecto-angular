@@ -12,14 +12,13 @@
     <div class="form-group">
       <label for="objeto">Objeto:</label>
       <input id="objeto" type="text" formControlName="objeto" />
-      @let objeto = formularioHalloween.controls.objeto;
-      @if (objeto.touched && objeto.errors?.['required']) {
+      @if (formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['required']) {
         <small>El objeto es obligatorio.</small>
       }
-      @if (objeto.touched && objeto.errors?.['minlength']) {
+      @if (formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['minlength']) {
         <small>Debe tener al menos 3 caracteres.</small>
       }
-      @if (objeto.touched && objeto.errors?.['maxlength']) {
+      @if (formularioHalloween.controls.objeto.touched && formularioHalloween.controls.objeto.errors?.['maxlength']) {
         <small>No puede superar los 50 caracteres.</small>
       }
     </div>
@@ -27,11 +26,10 @@
     <div class="form-group">
       <label for="descripcion">Descripción:</label>
       <textarea id="descripcion" rows="3" formControlName="descripcion"></textarea>
-      @let descripcion = formularioHalloween.controls.descripcion;
-      @if (descripcion.touched && descripcion.errors?.['required']) {
+      @if (formularioHalloween.controls.descripcion.touched && formularioHalloween.controls.descripcion.errors?.['required']) {
         <small>La descripción es obligatoria.</small>
       }
-      @if (descripcion.touched && descripcion.errors?.['minlength']) {
+      @if (formularioHalloween.controls.descripcion.touched && formularioHalloween.controls.descripcion.errors?.['minlength']) {
         <small>Debe tener al menos 10 caracteres.</small>
       }
     </div>
@@ -39,14 +37,13 @@
     <div class="form-group">
       <label for="propietario">Propietario:</label>
       <input id="propietario" type="text" formControlName="propietario" />
-      @let propietario = formularioHalloween.controls.propietario;
-      @if (propietario.touched && propietario.errors?.['required']) {
+      @if (formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['required']) {
         <small>El propietario es obligatorio.</small>
       }
-      @if (propietario.touched && propietario.errors?.['minlength']) {
+      @if (formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['minlength']) {
         <small>Debe tener al menos 3 caracteres.</small>
       }
-      @if (propietario.touched && propietario.errors?.['maxlength']) {
+      @if (formularioHalloween.controls.propietario.touched && formularioHalloween.controls.propietario.errors?.['maxlength']) {
         <small>No puede superar los 50 caracteres.</small>
       }
     </div>

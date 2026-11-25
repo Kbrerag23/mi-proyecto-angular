@@ -29,15 +29,10 @@
     linear-gradient(to bottom, transparent 68%, var(--suelo-1) 68%, var(--suelo-2) 100%),
     linear-gradient(to bottom, var(--pared-1), var(--pared-2));
   box-shadow: 0 10px 0 var(--sombra);
-  font-family: 'Fredoka', 'Baloo 2', 'Chalkboard SE', 'Comic Sans MS', 'Trebuchet MS', sans-serif;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
 }
 
-:host-context(.dark) .clicker-container,
-:host-context(.dark-mode) .clicker-container,
-:host-context(.dark-theme) .clicker-container,
-:host-context([data-theme='dark']) .clicker-container,
-:host-context([data-bs-theme='dark']) .clicker-container {
+:host-context([data-theme='dark']) .clicker-container {
   --pared-1: #2f2d57;
   --pared-2: #1c1b36;
   --suelo-1: #5e3d20;
@@ -84,13 +79,13 @@ h1 {
 
 @keyframes flotar {
   0%, 100% { translate: 0 0; }
-  50%      { translate: 0 -8px; }
+  50% { translate: 0 -8px; }
 }
 
 @keyframes crecer {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.5); }
-  70%  { transform: scale(1.25); }
+  0% { transform: scale(1); }
+  40% { transform: scale(1.5); }
+  70% { transform: scale(1.25); }
   100% { transform: scale(1); }
 }
 
@@ -99,14 +94,13 @@ h1 {
   padding: 0.7rem 1.8rem;
   font: inherit;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: bold;
   color: var(--boton-texto);
   background: var(--marca);
   border: 3px solid var(--borde);
   border-radius: 999px;
   box-shadow: 0 5px 0 var(--marca-oscuro);
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s, filter 0.2s;
 }
 
 .btn-reiniciar:hover {

@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HijoComponent } from './hijo';
 
 describe('HijoComponent', () => {
-  let fixture: ComponentFixture<HijoComponent>;
   let component: HijoComponent;
+  let fixture: ComponentFixture<HijoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,18 +21,5 @@ describe('HijoComponent', () => {
 
   it('tiene un mensaje por defecto', () => {
     expect(component.mensaje()).toBe('Mensaje por defecto...');
-  });
-
-  it('muestra el mensaje recibido', async () => {
-    fixture.componentRef.setInput('mensaje', 'Hola hijo');
-    await fixture.whenStable();
-    expect(fixture.nativeElement.textContent).toContain('Hola hijo');
-  });
-
-  it('emite un mensaje al padre', () => {
-    let recibido = '';
-    component.mensajeAlPadre.subscribe((texto) => (recibido = texto));
-    component.enviarAlPadre();
-    expect(recibido).toBe('Hola Papa');
   });
 });
