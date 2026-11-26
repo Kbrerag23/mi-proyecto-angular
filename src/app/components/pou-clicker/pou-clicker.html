@@ -1,17 +1,16 @@
 <div class="clicker-container">
   <h1>Clics: {{ contador }}</h1>
 
+  <!-- Cambia la imagen y vuelve a la normal al finalizar la animacion -->
   <img
-    //es para el cambio de imagen
     [src]="animando ? '/PouSonrie.png' : '/POU.png'"
     alt="Pou"
     class="pou-img"
     [class.crece]="animando"
-    //para cuando acaba la animacion, se pone a false para que vuelva a la imagen normal
     (animationend)="animando = false"
     (click)="hacerClic()"
     draggable="false"
-  >
+  />
 
   <button class="btn-reiniciar" (click)="reiniciar()">Reiniciar</button>
 </div>

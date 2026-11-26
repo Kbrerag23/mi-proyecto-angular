@@ -60,10 +60,9 @@
   <div class="lista-container">
     <h3>Objetos Guardados</h3>
     <!--es un signal, por lo que se actualiza automáticamente -->
-    @for (item of objetosHalloween(); track item) {
+    @for (item of objetosHalloween(); track $index) {
       <app-tarjeta-halloween
         [datos]="item"
-        // borra el objeto, que es $event 
         (solicitarEliminacion)="eliminarObjeto($event)">
       </app-tarjeta-halloween>
     }
