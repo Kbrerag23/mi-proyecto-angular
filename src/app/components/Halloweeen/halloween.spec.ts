@@ -19,6 +19,7 @@ describe('HalloweenComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  // Test para verificar que el formulario empieza inválido
   it('el formulario empieza inválido', () => {
     expect(component.formularioHalloween.valid).toBe(false);
   });

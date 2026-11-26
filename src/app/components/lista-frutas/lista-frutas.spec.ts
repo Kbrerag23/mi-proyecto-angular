@@ -19,6 +19,7 @@ describe('ListaFrutasComponent', () => {
     expect(component).toBeTruthy();
   });
 
+// Test para verificar que se añade una fruta al inventario
   it('añade una fruta', () => {
     component.incorporarFruta();
     expect(component.inventarioFrutas().length).toBe(4);

@@ -8,11 +8,11 @@
         <button
           type="button"
           class="btn-like"
-          [attr.aria-label]="'Me gusta ' + fruta.nombre"
           (click)="alternarLike(fruta.id)">
           {{ fruta.like ? '👍' : '👎' }}
         </button>
       </li>
+      <!--Esto es solo si la lista esta vacia -->
     } @empty {
       <li class="item-vacio">La cesta está totalmente vacía.</li>
     }

@@ -14,6 +14,7 @@ export class PouClickerComponent {
   hacerClic() {
     this.contador++;
 
+    //con esto sacas los multiplos asi ocurre cada 20 no solo al llgar a 20
     if (this.contador % this.META === 0) {
       this.animando = true;
       this.reproducir('/Pouimpresionado.mp3');
@@ -27,6 +28,7 @@ export class PouClickerComponent {
     this.animando = false;
   }
 
+  //esto pr si el navegador bloqea el audio pa q no pete
   private reproducir(ruta: string) {
     new Audio(ruta).play().catch(() => {});
   }

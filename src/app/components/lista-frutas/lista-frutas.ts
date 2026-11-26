@@ -8,6 +8,7 @@ import { Fruta } from '../../models/fruta';
   styleUrl: './lista-frutas.css'
 })
 export class ListaFrutasComponent {
+  //id pa cada fruta q ya esta
   private siguienteId = 4;
 
   inventarioFrutas = signal<Fruta[]>([
@@ -15,7 +16,8 @@ export class ListaFrutasComponent {
     { id: 2, nombre: 'Mango', emoji: '🥭', like: true },
     { id: 3, nombre: 'Sandía', emoji: '🍉', like: false }
   ]);
-
+  
+  //cndo se hace click añade un melocoton y le da un id unico, es decir 5, luego a la siguente 6, etc
   incorporarFruta(): void {
     this.inventarioFrutas.update((estadoActual) => [
       ...estadoActual,
@@ -23,6 +25,7 @@ export class ListaFrutasComponent {
     ]);
   }
 
+  //cndo clickeas el pulgar arriba/abajo solo cambia la fruta q tiene es id
   alternarLike(id: number): void {
     this.inventarioFrutas.update((estadoActual) =>
       estadoActual.map((fruta) => (fruta.id === id ? { ...fruta, like: !fruta.like } : fruta))

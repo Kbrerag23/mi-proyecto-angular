@@ -7,7 +7,9 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './hijo.css'
 })
 export class HijoComponent {
+  //dato q recibe del padre
   mensaje = input<string>('Mensaje por defecto...');
+  //evento q envia al padre
   mensajeAlPadre = output<string>();
 
   enviarAlPadre() {

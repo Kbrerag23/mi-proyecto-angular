@@ -14,7 +14,8 @@ describe('PouClickerComponent', () => {
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
-
+   
+  // Test para verificar que el componente se crea correctamente
   it('should create', () => {
     expect(component).toBeTruthy();
   });

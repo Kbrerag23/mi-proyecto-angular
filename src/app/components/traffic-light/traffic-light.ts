@@ -51,6 +51,7 @@ export class TrafficLightComponent implements OnDestroy {
       this.isAuto.set(true);
       this.nextLight();
 
+      //Aqui se indica cada cuanto cambia el color (2500ms=2.5s)
       this.timer = setInterval(() => {
         this.nextLight();
       }, 2500);
@@ -65,6 +66,7 @@ export class TrafficLightComponent implements OnDestroy {
     }
   }
 
+  //destruye el intervalo pa q no siga en segundo plano
   ngOnDestroy() {
     this.stopAuto();
   }

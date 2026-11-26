@@ -8,7 +8,10 @@ import { ObjetoHalloween } from '../../../models/objeto-halloween';
   styleUrl: './tarjeta-halloween.component.css'
 })
 export class TarjetaHalloweenComponent {
+
+  //la terjeta siosi tien q tener datos
   datos = input.required<ObjetoHalloween>();
+  //avisa a el componente padre que se quiere eliminar la tarjeta (halloween)
   solicitarEliminacion = output<ObjetoHalloween>();
 
   eliminarTarjeta(): void {

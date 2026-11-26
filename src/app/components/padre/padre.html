@@ -7,7 +7,9 @@
 
   @for (hijo of hijos; track hijo) {
     <app-hijo
+      // baja datos de padre a hijo
       [mensaje]="mensajeDinamico()"
+      //escucha el evento q envia el hijo y ejecuta la funcion
       (mensajeAlPadre)="recibirMensaje($event)">
     </app-hijo>
   }

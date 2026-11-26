@@ -12,10 +12,12 @@ import { ObjetoHalloween } from '../../models/objeto-halloween';
   styleUrls: ['./halloween.css']
 })
 export class HalloweenComponent {
+  //asi no ahce falta un constructor, injectas el servicio y ya
   private readonly halloweenService = inject(HalloweenService);
 
   readonly objetosHalloween = this.halloweenService.objetos;
 
+  //form con los validators para que salten los errores si no se cumplen
   formularioHalloween = new FormGroup({
     imagen: new FormControl('', [Validators.required]),
     objeto: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
@@ -27,11 +29,13 @@ export class HalloweenComponent {
     if (this.formularioHalloween.valid) {
       const valores = this.formularioHalloween.value;
       this.halloweenService.agregar({
+        // el ! es para q typeScript sepa q no es null y confie
         imagen: valores.imagen!,
         objeto: valores.objeto!,
         descripcion: valores.descripcion!,
         propietario: valores.propietario!
       });
+      // hace q el form se resetee
       this.formularioHalloween.reset();
     }
   }

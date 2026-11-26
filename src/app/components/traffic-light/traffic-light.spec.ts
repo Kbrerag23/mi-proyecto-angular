@@ -19,10 +19,12 @@ describe('TrafficLightComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  // empieza en rojo 
   it('empieza en rojo', () => {
     expect(component.activeLight()).toBe('red');
   });
 
+  // desde rojo pasa a verde
   it('cambia a verde', () => {
     component.nextLight();
     expect(component.activeLight()).toBe('green');

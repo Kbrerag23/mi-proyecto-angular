@@ -4,6 +4,7 @@
     <div class="form-group">
       <label for="imagen">Imagen (URL):</label>
       <input id="imagen" type="url" formControlName="imagen" />
+      <!--solo hay error si ya has clickado el campo-->
       @if (formularioHalloween.controls.imagen.touched && formularioHalloween.controls.imagen.invalid) {
         <small>La imagen es obligatoria.</small>
       }
@@ -48,6 +49,7 @@
       }
     </div>
 
+    <!-- Submit pero esta desactivado si el form no es valido -->
     <button type="submit" [disabled]="formularioHalloween.invalid">
       Enviar
     </button>
@@ -57,9 +59,11 @@
 
   <div class="lista-container">
     <h3>Objetos Guardados</h3>
+    <!--es un signal, por lo que se actualiza automáticamente -->
     @for (item of objetosHalloween(); track item) {
       <app-tarjeta-halloween
         [datos]="item"
+        // borra el objeto, que es $event 
         (solicitarEliminacion)="eliminarObjeto($event)">
       </app-tarjeta-halloween>
     }

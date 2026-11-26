@@ -19,6 +19,7 @@ describe('PadreComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  // Test para verificar que se muestran cinco hijos
   it('muestra cinco hijos', () => {
     expect(fixture.nativeElement.querySelectorAll('app-hijo').length).toBe(5);
   });

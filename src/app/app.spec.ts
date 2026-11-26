@@ -10,6 +10,7 @@ describe('App', () => {
     }).compileComponents();
   });
 
+  // Prueba para verificar que la aplicación se crea correctamente
   it('should create the app', () => {
     const fixture = TestBed.createComponent(App);
     expect(fixture.componentInstance).toBeTruthy();
